@@ -1,0 +1,54 @@
+body{
+    background-color: #242424;
+    font: normal 15pt arial;
+    color: #08C2AF;
+}
+
+header{
+    color: #08C2AF;
+    text-align: center;
+    width: 50%;
+    margin-left: 25%;  
+    margin-bottom: 30px;
+}
+
+#intro, #funcionamento{
+    font-size: 15px;
+}
+
+section{
+    background-color: #16161A;
+    border-radius: 10px;
+    padding: 15px;
+    width: 500px;
+    margin: auto;
+    box-shadow: 15px 5px 10px #08C2AF;
+
+}
+
+div.select{
+    padding: 5px;
+}
+
+#valores, #numUser{
+    padding: 5px;
+    background-color: #2D2C45;
+    color: #08C2AF;
+}
+
+#calculaInput,#adicionarInput{
+    border-radius: 5px;
+    border-color: #08C2AF;
+    background-color: #FFFFFF;
+}
+
+footer{
+    color: aliceblue;
+    text-align: center;
+    font-style: italic;
+}
+
+a{
+    font-style: oblique;
+    color: #FFFFFF;
+}
