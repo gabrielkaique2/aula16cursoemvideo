@@ -1,13 +1,11 @@
 var userNumbers = [];
 
 function adicionar(){
-
-    //Não pode adicionar o mesmo número e NÃO pode adicionar vazio XXXXX
-
     var textAreaNumber = document.querySelector("input#numUser");
     var numUser = Number(textAreaNumber.value);
     var campoS = document.querySelector("select#valores");
     var el = document.createElement('option');
+    let cR = document.querySelector('div#resp')
 
     if(userNumbers.indexOf(numUser) != -1){
         alert(`O valor ${userNumbers[userNumbers.indexOf(numUser)]} Já está na lista! Coloque outro!`)
@@ -20,27 +18,27 @@ function adicionar(){
         userNumbers.push(numUser)
         el.text = `Valor ${numUser} adicionado`;
         campoS.appendChild(el)
+        cR.innerHTML = ''
 
         }
         }
-        //console.log(numUser)
-    //return userNumbers
+    textAreaNumber.value = '';
+    textAreaNumber.focus();
 }
 
-    /* 1 - Mostrar total de números XXXXX
-       2 - Mostrar o maior valor
-       3 - Mostrar o menor valor XXXX
-       4 - mostrar a soma dos valores XXXXXX
-       5 - mostrar a média dos valores obs: mostrar somente 2 casas decimais! XXXX
-    */
 function calcula(){
     var total = userNumbers.length;
-    var campoR = document.querySelector('section#formsection')
+    var campoR = document.querySelector('div#resp')
     var resp = document.createElement('p')
+    
+    if(total == 0){
+        alert('[ERRO] Insira pelo menos 1 elemento na lista')
+    }else{
+        resp.innerHTML = ''
+        resp.innerHTML = `Você adicionou ${total} números <br> A soma dos seus números é ${somar()} <br> A média dos valores é ${media()} <br> O maior valor da lista é ${maiorMenor('b')} <br> O menor valor da lista é ${maiorMenor('a')}`
+        campoR.appendChild(resp);    
+    }
 
-    resp.innerHTML = ''
-    resp.innerHTML = `Você adicionou ${total} números <br> A soma dos seus números é ${somar()} <br> A média dos valores é ${media()} <br> O maior valor da lista é ${maiorMenor('b')} <br> O menor valor da lista é ${maiorMenor('a')}`
-    campoR.appendChild(resp);
 }
 
 function somar(){
@@ -52,7 +50,7 @@ function somar(){
 
 function media(){
     var medUserNumbers = somar()/userNumbers.length
-    return medUserNumbers;
+    return parseFloat(medUserNumbers).toFixed(2);
 }
 
 function maiorMenor(opt){
